@@ -2,6 +2,8 @@
 
 Flutter application to show Android's Toast Message.
 
+<img src="https://github.com/UttamPanchasara/FlutterToast/blob/master/gif/flutter_toast.gif" height="400" alt="Screenshot"/> 
+
 ## Methods and code to Show Toast message in flutter.
 
 To show Toast Message in flutter, I'm communicating to native code using Platfrom Channels from flutter, and from native code I'm showing the Toast message.
