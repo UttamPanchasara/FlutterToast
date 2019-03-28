@@ -18,6 +18,7 @@ class MainActivity : FlutterActivity() {
         super.onCreate(savedInstanceState)
         GeneratedPluginRegistrant.registerWith(this)
 
+        // handle method invocation from flutter, and perform action
         MethodChannel(flutterView, CHANNEL).setMethodCallHandler { call, result ->
             if (call.method == METHOD_TOAST) {
                 val message = call.argument<String>(KEY_MESSAGE)
