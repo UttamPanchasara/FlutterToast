@@ -2,10 +2,10 @@ package com.uttampanchasara.fluttertoastexample
 
 import android.os.Bundle
 import android.widget.Toast
-
 import io.flutter.app.FlutterActivity
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugins.GeneratedPluginRegistrant
+
 
 class MainActivity : FlutterActivity() {
     companion object {
@@ -17,7 +17,7 @@ class MainActivity : FlutterActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         GeneratedPluginRegistrant.registerWith(this)
-        WebViewPlugin.registerWith(this.registrarFor("com.uttampanchasara.fluttertoastexample"))
+        WebViewPlugin.registerWith(this.registrarFor("com.uttampanchasara.fluttertoastexample"), this)
 
         // handle method invocation from flutter, and perform action
         MethodChannel(flutterView, CHANNEL).setMethodCallHandler { call, result ->

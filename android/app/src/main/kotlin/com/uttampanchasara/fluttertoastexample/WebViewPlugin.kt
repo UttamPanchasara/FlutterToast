@@ -6,10 +6,10 @@ package com.uttampanchasara.fluttertoastexample
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
 object WebViewPlugin {
-    fun registerWith(registrar: Registrar) {
+    fun registerWith(registrar: Registrar, activity: MainActivity) {
         registrar
                 .platformViewRegistry()
                 .registerViewFactory(
-                        "webview", WebViewFactory(registrar.messenger()))
+                        "webview", WebViewFactory(registrar.messenger(), activity))
     }
 }

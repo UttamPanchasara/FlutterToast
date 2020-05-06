@@ -5,6 +5,7 @@ package com.uttampanchasara.fluttertoastexample
  */
 import android.annotation.SuppressLint
 import android.content.Context
+import android.view.ContextThemeWrapper
 import android.view.View
 import android.webkit.WebView
 import io.flutter.plugin.common.BinaryMessenger
@@ -14,7 +15,7 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.platform.PlatformView
 
-class MyWebView internal constructor(context: Context, messenger: BinaryMessenger, id: Int) : PlatformView, MethodCallHandler {
+class MyWebView internal constructor(context: MainActivity, messenger: BinaryMessenger, id: Int) : PlatformView, MethodCallHandler {
     private val webView: WebView
     private val methodChannel: MethodChannel
 
@@ -24,7 +25,6 @@ class MyWebView internal constructor(context: Context, messenger: BinaryMessenge
 
     init {
         webView = WebView(context)
-
         methodChannel = MethodChannel(messenger, "webview$id")
         methodChannel.setMethodCallHandler(this)
     }
