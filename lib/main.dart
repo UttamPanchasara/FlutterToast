@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_toast_example/utils/Toast.dart';
+import 'package:flutter_toast_example/webview.dart';
 
 void main() => runApp(MyApp());
 
@@ -36,45 +37,53 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Scaffold(
         resizeToAvoidBottomPadding: false,
-        body: Container(
-          margin: EdgeInsets.all(20),
-          child: Column(
-            children: <Widget>[
-              Container(
-                child: TextField(
-                  controller: textController,
-                  decoration: InputDecoration(
-                      hintText: "Message",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(2),
-                      )),
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                margin: EdgeInsets.only(top: 50),
-                height: 45,
-                child: RaisedButton(
-                  onPressed: () {
-                    if (textController.text.isEmpty) {
-                      Toast("Provide non empty message");
-                      return;
-                    }
-                    Toast(textController.text);
-                  },
-                  textColor: Colors.white,
-                  color: Colors.black,
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Show Toast",
-                  ),
-                  shape: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(23)),
-                ),
-              ),
-            ],
-          ),
+        body: WebView(
+          onWebViewCreated: (controller) {
+            controller.loadUrl('https://www.google.com');
+          },
         ),
+      ),
+    );
+  }
+
+  Widget toastInput() {
+    return Container(
+      margin: EdgeInsets.all(20),
+      child: Column(
+        children: <Widget>[
+          Container(
+            child: TextField(
+              controller: textController,
+              decoration: InputDecoration(
+                  hintText: "Message",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(2),
+                  )),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.only(top: 50),
+            height: 45,
+            child: RaisedButton(
+              onPressed: () {
+                if (textController.text.isEmpty) {
+                  Toast("Provide non empty message");
+                  return;
+                }
+                Toast(textController.text);
+              },
+              textColor: Colors.white,
+              color: Colors.black,
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Show Toast",
+              ),
+              shape:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(23)),
+            ),
+          ),
+        ],
       ),
     );
   }
