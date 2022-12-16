@@ -99,4 +99,4 @@ To show toast messages from flutter, Simply call Toast class with your message a
 
 # Donate
 > If you found this Example helpful, consider buying me a cup of :coffee:
-- Google Pay **(panchasarauttam@okaxis)**
+- Paypal **https://paypal.me/UttamPanchasara**
